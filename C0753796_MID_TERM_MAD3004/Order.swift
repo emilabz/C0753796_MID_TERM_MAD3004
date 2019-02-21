@@ -8,25 +8,36 @@
 
 import Foundation
 class Order{
-    var orderId:String
+    var orderId:Int
     var orderDate:Date
     var orderTotal:Float
     var pArray=[Product]()
     init(){
-        self.orderId=String()
+        self.orderId=0
         self.orderDate=Date()
         self.orderTotal=0.0
     }
-    init(orderId:String,orderDate:Date,pArray:[Product]/*,orderTotal:Float*/){
-        self.orderId=String()
+    init(orderId:Int,orderDate:Date,pArray:[Product],orderTotal:Float){
+        self.orderId=orderId
         self.orderDate=Date()
-        self.orderTotal=0.0     //self.orderTotal=orderTotal
+        self.orderTotal=orderTotal   //self.orderTotal=orderTotal
         self.pArray=pArray
     }
     func display(){
-        print("Details are\nOrder Id    \tOrder Date    \tProduct Name  \tOrder Total")
+        print("Details are\nOrder Id    \tOrder Date    \t\t\tProduct Name  \tproduct Price")
         for i in pArray{
-            print("\t\(self.orderId)\t  \(self.orderDate)   \t\(i.productName)  \t\(orderTotal)")
+            print("\t\(self.orderId)\t  \(self.orderDate)   \t\(i.productName)  \t\(i.price)")
+        }
+        print("Order Total: \(orderTotal)")
+    }
+    func getOrderById(orderId:Int) -> Bool{
+        if(self.orderId == orderId){
+            print("Match found")
+            return true
+        }
+        else{
+            print("Match not found")
+            return false
         }
     }
 }

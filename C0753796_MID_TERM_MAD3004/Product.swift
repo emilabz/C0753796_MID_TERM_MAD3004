@@ -19,11 +19,11 @@ class Product : Manufacturer{
         self.quantity=0
         super.init()
     }
-    init(productId:String,productName:String,price:Float,quantity:Float,manId:String,manName:String){
-        self.productId=String()
-        self.productName=String()
-        self.price=0.0
-        self.quantity=0
+    init(productId:String,productName:String,price:Float,quantity:Int,manId:String,manName:String){
+        self.productId=productId
+        self.productName=productName
+        self.price=price
+        self.quantity=quantity
         super.init(manufacturerId: manId, manufacturerName: manName)
     }
 }
